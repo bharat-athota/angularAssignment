@@ -1,0 +1,44 @@
+.nav-tabs {
+    margin-bottom: 1rem;
+  }
+  
+  .nav-tabs .nav-item {
+    margin-bottom: -1px;
+  }
+  
+  .nav-tabs .nav-link {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem 0.25rem 0 0;
+  }
+  
+  .tabs-data {
+    width: 96%;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  
+  .nav-item{
+    cursor: pointer;
+  }
+  
+  .sixty-days {
+    margin-left: 2rem;
+  }
+
+  .heading{
+    padding-left: 1rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+  }
+
+  .deviation {
+    padding-left: 4px;
+    padding-top: 8px;
+  }
+
+  .deviation-header{
+    display: flex; 
+    flex-direction: row; 
+    padding-left: 1rem;
+    padding-bottom: 2rem;
+  }

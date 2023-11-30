@@ -1,1 +1,31 @@
-<p>issues works!</p>
+<div class="main">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Created On</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let issue of paginatedItems">
+                <td>{{ issue.index }}</td>
+                <td>{{ issue.name }}</td>
+                <td>{{ issue.description }}</td>
+                <td>{{ issue.createdON | date: 'MMMM d, y' }}</td>
+                <td>{{ issue.status }}</td>
+            </tr>
+            <tr *ngIf="paginatedItems.length === 0">
+                <td colspan="5">
+                    No Recors Found!!!
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination-class">
+        <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" [itemsPerPage]="itemsPerPage"
+            (pageChange)="onPageChange($event)"></app-pagination>
+    </div>
+
+</div>

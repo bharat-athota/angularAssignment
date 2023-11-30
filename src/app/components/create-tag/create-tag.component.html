@@ -1,0 +1,33 @@
+<div class="container mt-1">
+    <h3 class="heading"> Tag Deatils: {{name}}</h3>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Name*:</label>
+            <input type="text" id="name" class="form-control" formControlName="name" [(ngModel)]="name">
+            <div *ngIf="myForm.get('name')?.hasError('required') && myForm.get('name')?.touched" class="text-danger">
+                Name is required.
+            </div>
+        </div>
+
+        <div class="form-group submit-button">
+            <label for="description">Description*:</label>
+            <textarea id="description" class="form-control" formControlName="description"></textarea>
+            <div *ngIf="myForm.get('description')?.hasError('required') && myForm.get('description')?.touched"
+                class="text-danger">
+                Description is required.
+            </div>
+        </div>
+
+        <div class="form-group submit-button">
+            <label for="description">Created On*:</label>
+            <input type="date" id="name" class="form-control" formControlName="createdOn">
+            <div *ngIf="myForm.get('createdOn')?.hasError('required') && myForm.get('description')?.touched"
+                class="text-danger">
+                Created On is required.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary submit-button right-aligned">Submit</button>
+        <button type="submit" class="btn btn-danger submit-button right-aligned cancel-button"
+            (click)="dashboard()">Cancel</button>
+    </form>
+</div>

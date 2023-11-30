@@ -1,1 +1,41 @@
-<p>tags works!</p>
+<div class="main">
+    <div class="create-new">
+        <button class="btn btn-primary btn-sm" (click)="newTag()">New</button>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Created On</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tag of paginatedItems">
+                <td>{{ tag.index }}</td>
+                <td>{{ tag.name }}</td>
+                <td>{{ tag.description }}</td>
+                <td>{{ tag.createdOn | date: 'MMMM d, y' }}</td>
+                <td>
+                    <button class="btn btn-warning btn-sm" (click)="editTag(tag)">
+                        <i class="fa fa-edit" aria-hidden="true"></i>
+                        Edit</button>
+                    <button style="margin-left: 8px;" class="btn btn-danger btn-sm" (click)="deleteTag(tag)"><i
+                            class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+                </td>
+            </tr>
+            <tr *ngIf="paginatedItems.length === 0">
+                <td colspan="5">
+                    No Recors Found!!!
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination-class">
+        <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" [itemsPerPage]="itemsPerPage"
+            (pageChange)="onPageChange($event)"></app-pagination>
+    </div>
+
+</div>

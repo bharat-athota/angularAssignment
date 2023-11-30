@@ -1,0 +1,44 @@
+<h3 class="heading">Complaints Analytics</h3>
+<div class="deviation-header">
+    <h3>Filed Complints Deviation : </h3>
+    <div class="deviation"><i class="fa fa-solid fa-arrow-up"></i> {{issuesDeviationPercentage}}</div>
+</div>
+<div>
+    <button class="btn btn-primary btn-sm sixty-days" (click)="initiateChat(30)">30 Days</button>
+    <button class="btn btn-warning btn-sm sixty-days" (click)="initiateChat(60)">60 Days</button>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                [legend]="barChartLegend" [type]="'bar'">
+            </canvas>
+        </div>
+        <div class="col-md-6">
+            <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                [legend]="lineChartLegend" [type]="'line'">
+            </canvas>
+        </div>
+    </div>
+</div>
+<h3 class="heading">Complaints Board</h3>
+<div class="tabs-data">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" [ngClass]="currentTab === 'tab1' ? 'active' : ''" id="tab1-tab"
+                (click)="changeTab('tab1')">Issues</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [ngClass]="currentTab === 'tab2' ? 'active' : ''" id="tab2-tab"
+                (click)="changeTab('tab2')">Tags</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade" id="tab1" [ngClass]="currentTab === 'tab1' ? 'show active' : ''">
+            <app-issues *ngIf="currentTab === 'tab1'"></app-issues>
+        </div>
+        <div class="tab-pane fade" id="tab2" [ngClass]="currentTab === 'tab2' ? 'show active' : ''">
+            <app-tags *ngIf="currentTab === 'tab2'"></app-tags>
+        </div>
+    </div>
+</div>

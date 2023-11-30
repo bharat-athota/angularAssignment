@@ -6,17 +6,31 @@ import { AppComponent } from './app.component';
 import { TagsComponent } from './components/tags/tags.component';
 import { IssuesComponent } from './components/issues/issues.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CreateTagComponent } from './components/create-tag/create-tag.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppStoreModule } from 'src/app/store/app.store.module';
+import { NgChartsModule } from 'ng2-charts';
+import { PaginationComponent } from './shared/pagination/pagination.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TagsComponent,
-    IssuesComponent
+    IssuesComponent,
+    DashboardComponent,
+    CreateTagComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    AppStoreModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
