@@ -1,0 +1,20 @@
+<div class="card">
+    <div class="card-header">
+      {{ header }}
+    </div>
+    <div class="card-body">
+      <div class="upvote">
+        <i class="fa fa-arrow-up" aria-hidden="true" (click)="addUpvote()"></i>
+        <span class="upvote-count"> {{upvotes}} </span>
+        <i class="fa fa-arrow-down" aria-hidden="true" (click)="deleteUpvote()"></i>
+      </div>
+      <div class="description">
+        <p class="card-text">{{ description }}</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">{{ status }}</small>
+      <i class="fa fa-trash delete-card" (click)="deleteIssue()" aria-hidden="true"></i>
+    </div>
+    <app-comments class="comments" [comments]="comments"></app-comments>
+  </div>

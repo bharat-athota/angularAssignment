@@ -1,0 +1,41 @@
+.card {
+    width: 98%;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.card-footer {
+    background-color: #58a0e9;
+}
+
+.delete-card{
+    float: right;
+    padding-top: 6px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: row;
+}
+
+.upvote {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-text {
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+}
+
+.upvote-count {
+    padding-left: 4px;
+}
+
+.comments {
+    padding-left: 1rem;
+}

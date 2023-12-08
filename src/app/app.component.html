@@ -1,1 +1,16 @@
-<router-outlet></router-outlet>
+<nav class="navbar navbar-dark bg-dark sidebar">
+    <div class="sidebar-sticky">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active"><i class="fa fa-tachometer" aria-hidden="true"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/issuesDashboard" routerLinkActive="active"><i class="fa fa-inbox" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+ 
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>

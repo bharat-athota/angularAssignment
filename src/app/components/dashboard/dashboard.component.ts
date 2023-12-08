@@ -32,6 +32,8 @@ export class DashboardComponent implements OnInit {
   lineChartLegend = true;
   issuesDeviated: boolean = false;
   issuesDeviationPercentage: any = 0;
+  lastthirtyDaysTagsCount: number = 0;
+  lastThirtyDaysIssuesCount: number = 0;
 
   constructor(private issueService: IssuesService, private cd: ChangeDetectorRef) { }
 
@@ -54,7 +56,8 @@ export class DashboardComponent implements OnInit {
     const currentDate = new Date();
     const thirtyDaysAgo = new Date(currentDate.getTime() - days * 24 * 60 * 60 * 1000);
     const filteredRecords = this.issues.filter(record => new Date(record['createdON']) >= thirtyDaysAgo);
-    filteredRecords.forEach(item => item.tags.forEach( tag => tags.push(tag)));
+    filteredRecords.forEach(item => item.tags?.forEach( tag => tags.push(tag)));
+    this.lastthirtyDaysTagsCount = tags.length
     const itemCounts: Record<string, number> = {};
     tags.forEach((item: any) => {
       itemCounts[item] = (itemCounts[item] || 0) + 1;
@@ -70,12 +73,16 @@ export class DashboardComponent implements OnInit {
   }
 
   initiateLineChat() {
+    this.lineChartLabels = [];
+    this.lineChartData[0].data = [];
+    this.lineChartData[1].data = [];
     const thirtyDaysAgo = new Date();
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
     const sixtyDaysAgo = new Date();
     sixtyDaysAgo.setDate(sixtyDaysAgo.getDate() - 60);
     const statusCountsForThirtyDays: Record<string, number> = {};
     const lastThirtyDaysData = this.issues.filter(item => new Date(item['createdON']) >= thirtyDaysAgo);
+    this.lastThirtyDaysIssuesCount = lastThirtyDaysData.length;
     lastThirtyDaysData.forEach(item => {
       const status = item.status;
       statusCountsForThirtyDays[status] = (statusCountsForThirtyDays[status] || 0) + 1;

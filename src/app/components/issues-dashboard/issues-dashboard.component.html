@@ -1,0 +1,15 @@
+<button type="button" class="btn btn-warning raise-issue" (click)="newIssue()">Raise an Issue</button>
+
+<div *ngFor="let issue of issues">
+  <app-issue-card
+  [header]="issue.name"
+  [description]="issue.description"
+  [status]="issue.status"
+  [id]="issue.index"
+  [upvotes]="issue.upvotes"
+  [comments]="issue.comments">
+</app-issue-card>
+</div>
+<div>
+ 
+</div>

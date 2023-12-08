@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+  constructor(private elementRef: ElementRef) {}
   title = 'MyApp';
+
+  ngAfterViewInit() {
+    this.elementRef.nativeElement.ownerDocument
+        .body.style.backgroundColor = 'black';
+    this.elementRef.nativeElement.ownerDocument
+        .body.style.color = 'white';
+  };
+  
 }

@@ -4,6 +4,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TagsComponent } from './components/tags/tags.component';
 import { IssuesComponent } from './components/issues/issues.component';
 import { CreateTagComponent } from './components/create-tag/create-tag.component';
+import { IssuesDashboardComponent } from './components/issues-dashboard/issues-dashboard.component';
+import { CreateIssueComponent } from './components/create-issue/create-issue.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,14 @@ const routes: Routes = [
   {
     path: 'createTag',
     component: CreateTagComponent
+  },
+  {
+    path: 'issuesDashboard',
+    component: IssuesDashboardComponent
+  },
+  {
+    path: 'createIssue',
+    component: CreateIssueComponent
   }
 ];
 

@@ -1,0 +1,24 @@
+<div class="comments-container" *ngIf="comments.length > 0">
+    <div *ngFor="let comment of comments" class="comment">
+      <strong>{{ comment.userName }}</strong>
+      <p>{{ comment.text }}</p>
+      <small>{{ comment.createdAt | date:'medium' }}</small>
+ 
+      <div class="add-reply">
+        <textarea [(ngModel)]="newReplyText[comment.id]" placeholder="Reply to this comment..."></textarea>
+        <button class="btn btn-sm btn-primary" (click)="addReply(comment.id)">Reply</button>
+      </div>
+ 
+      <div *ngIf="comment.replies && comment.replies.length > 0" class="replies">
+        <div *ngFor="let reply of comment?.replies" class="reply">
+          <strong>{{ reply?.userName }}</strong>
+          <p>{{ reply?.text }}</p>
+          <small>{{ reply?.createdAt | date:'medium' }}</small>
+        </div>
+      </div>
+    </div>
+    <div class="add-comment">
+      <textarea [(ngModel)]="newCommentText" placeholder="Add a comment..."></textarea>
+      <button class="btn btn-sm btn-primary post-button" (click)="addComment()">Post</button>
+    </div>
+  </div>
